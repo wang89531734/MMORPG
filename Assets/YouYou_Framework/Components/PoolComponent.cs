@@ -5,7 +5,9 @@ using UnityEngine;
 
 namespace YouYou
 {
-
+    /// <summary>
+    /// ³Ø×é¼þ
+    /// </summary>
     public class PoolComponent : YouYouBaseComponent,IUpdateComponent
     {
         public PoolManager PoolManager

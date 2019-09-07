@@ -12,7 +12,8 @@ namespace YouYou
         public override void OnEnter()
         {
             base.OnEnter();
-            GameEntry.Procedure.ChangeState(ProcedureState.CheckVersion);
+            //GameEntry.Procedure.ChangeState(ProcedureState.CheckVersion);
+            Debug.Log("执行启动流程");
         }
 
         public override void OnUpdate()

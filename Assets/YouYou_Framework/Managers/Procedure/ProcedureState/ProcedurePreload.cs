@@ -13,8 +13,8 @@ namespace YouYou
         public override void OnEnter()
         {
             base.OnEnter();
-            GameEntry.Event.CommonEvent.AddEventListener(SysEventId.LoadOneDataTableComplete, OnLoadDataTableComplete);
-            GameEntry.DataTable.LoadDataTableAsync();
+            //GameEntry.Event.CommonEvent.AddEventListener(SysEventId.LoadOneDataTableComplete, OnLoadDataTableComplete);
+            //GameEntry.DataTable.LoadDataTableAsync();
         }
 
         public override void OnUpdate()
@@ -25,7 +25,7 @@ namespace YouYou
         public override void OnLeave()
         {
             base.OnLeave();
-            GameEntry.Event.CommonEvent.RemoveEventListener(SysEventId.LoadOneDataTableComplete, OnLoadDataTableComplete);
+            //GameEntry.Event.CommonEvent.RemoveEventListener(SysEventId.LoadOneDataTableComplete, OnLoadDataTableComplete);
         }
 
         /// <summary>

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace YouYou
 {
+    /// <summary>
+    /// 选人流程
+    /// </summary>
     public class ProcedureSelectRole : ProcedureBase
     {
         public override void OnEnter()

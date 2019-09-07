@@ -13,7 +13,7 @@ namespace YouYou
         {
             base.OnEnter();
 
-            GameEntry.Procedure.ChangeState(ProcedureState.Preload);
+            //GameEntry.Procedure.ChangeState(ProcedureState.Preload);
         }
 
         public override void OnUpdate()

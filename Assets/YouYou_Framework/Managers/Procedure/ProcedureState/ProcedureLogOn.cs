@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace YouYou
 {
+    /// <summary>
+    /// µÇÂ¼Á÷³Ì
+    /// </summary>
     public class ProcedureLogOn : ProcedureBase
     {
         public override void OnEnter()

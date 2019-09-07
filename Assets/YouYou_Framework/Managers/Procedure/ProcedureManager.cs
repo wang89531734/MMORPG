@@ -93,12 +93,12 @@ namespace YouYou
         /// <param name="state"></param>
         public void ChangeState(ProcedureState state)
         {
-            //m_CurrFsm.ChangeState((byte)state);
+            m_CurrFsm.ChangeState((byte)state);
         }
 
         public void OnUpdate()
         {
-            //m_CurrFsm.OnUpdate();
+            m_CurrFsm.OnUpdate();
         }
 
         public void Dispose()

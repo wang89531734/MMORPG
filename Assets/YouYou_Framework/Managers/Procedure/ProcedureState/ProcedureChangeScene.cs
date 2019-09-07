@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace YouYou
 {
+    /// <summary>
+    /// ÇÐ»»³¡¾°Á÷³Ì
+    /// </summary>
     public class ProcedureChangeScene : ProcedureBase
     {
         public override void OnEnter()
