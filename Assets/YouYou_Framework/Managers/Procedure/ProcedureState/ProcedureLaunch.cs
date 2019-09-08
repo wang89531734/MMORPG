@@ -16,8 +16,7 @@ namespace YouYou
             if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0)//先是片头场景然后加载标题场景
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(1);
-            }
-            //GameEntry.Procedure.ChangeState(ProcedureState.LogOn);
+            }          
             Debug.Log("执行启动流程");
         }
 
