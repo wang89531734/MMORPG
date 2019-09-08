@@ -12,6 +12,7 @@ namespace YouYou
         public override void OnEnter()
         {
             base.OnEnter();
+            Debug.Log("Ö´ÐÐµÇÂ½Á÷³Ì");
         }
 
         public override void OnUpdate()

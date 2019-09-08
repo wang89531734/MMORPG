@@ -17,7 +17,7 @@ namespace YouYou
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(1);
             }
-            //GameEntry.Procedure.ChangeState(ProcedureState.CheckVersion);
+            //GameEntry.Procedure.ChangeState(ProcedureState.LogOn);
             Debug.Log("执行启动流程");
         }
 
