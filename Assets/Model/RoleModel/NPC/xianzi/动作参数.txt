@@ -1,0 +1,2 @@
+
+Idle_Normal: 5-50

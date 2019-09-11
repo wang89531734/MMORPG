@@ -1,0 +1,23 @@
+                             
+ 英文名字          中文名字            帧数
+ 
+Idle_Fight         战斗待机            0-60
+
+Hurt                                    145~163
+
+
+
+Die                  死亡              165~205
+
+HurtXuanYun          眩晕（中毒）     210~230
+
+PhyAttack1          物理攻击1         75-105
+
+PhyAttack2          物理攻击2          110-140
+
+Run                  跑步              5-25
+
+Born                 出生              235~265
+
+HurtBingDong         冰冻                150                       （ 定格动画）
+

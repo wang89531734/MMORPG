@@ -1,0 +1,25 @@
+
+
+Idle_Fight     战斗 待机  0----40
+ 
+Run            跑     步  485-506
+
+PhyAttack1     普通攻击1  428-482
+
+Skill1         技能攻击1  128-228
+
+Skill2         技能攻击2  230-304
+
+Skill3         技能攻击3  306-425
+
+Hurt           受     伤  41---59
+
+HurtXuanYun    眩     晕  510-540
+
+Die            死     亡  65--125
+
+Born           出     生  605-678
+
+BaTi           霸     体  543-603
+
+HurtBingDong   冰     冻  46

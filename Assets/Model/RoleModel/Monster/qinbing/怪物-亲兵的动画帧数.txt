@@ -1,0 +1,23 @@
+                              亲兵模型动画帧数
+
+ 英文名字          中文名字            帧数
+ 
+Idle_Fight         战斗待机            0-40
+
+Hurt                 击退              42-59
+
+Die                  死亡              64-132
+
+HurtXuanYun          眩晕              135-165
+                 
+PhyAttack1          物理攻击1          168-198
+
+PhyAttack2          物理攻击2          224-247
+
+Run                  跑步              201-221
+
+HurtBingDong         冰冻                43                        （ 定格动画）
+
+
+               
+
