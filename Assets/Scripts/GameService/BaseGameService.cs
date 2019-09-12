@@ -140,14 +140,13 @@ public abstract class BaseGameService : MonoBehaviour
     }
 
     /// <summary>
-    /// ValidateLoginToken
+    /// 检查是否有存档
     /// </summary>
     /// <param name="refreshToken"></param>
     /// <param name="onSuccess"></param>
     /// <param name="onError"></param>
     public void ValidateLoginToken(bool refreshToken, UnityAction<PlayerResult> onSuccess = null, UnityAction<string> onError = null)
     {
-        Debug.Log("Call Service: ValidateLoginToken");
         var playerId = GetPrefsPlayerId();
         var loginToken = GetPrefsLoginToken();
         HandleServiceCall();

@@ -661,7 +661,7 @@ MonoBehaviour:
   inputDialog: {fileID: 439239425}
   rewardItemsDialog: {fileID: 1651604938}
   loadingObject: {fileID: 1778298261}
-  loginScene: LoginScene
+  loginScene: StartScene
   manageScene: ManageScene
   battleScene: BattleScene
 --- !u!114 &1116362996
@@ -896,7 +896,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1243895715605012, guid: a64bd015c7a9afa48aca48f2ce848510, type: 3}
       propertyPath: m_Name
-      value: 'StartBtn '
+      value: 'ContinueBtn '
       objectReference: {fileID: 0}
     - target: {fileID: 224275167703679198, guid: a64bd015c7a9afa48aca48f2ce848510,
         type: 3}
@@ -936,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 224275167703679198, guid: a64bd015c7a9afa48aca48f2ce848510,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224275167703679198, guid: a64bd015c7a9afa48aca48f2ce848510,
         type: 3}
@@ -1391,6 +1391,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599347292}
   m_CullTransparentMesh: 0
+--- !u!1 &1636872108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1243895715605012, guid: a64bd015c7a9afa48aca48f2ce848510,
+    type: 3}
+  m_PrefabInstance: {fileID: 1353336595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1651604937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1577,7 +1583,7 @@ GameObject:
   - component: {fileID: 1907846475}
   - component: {fileID: 1907846474}
   m_Layer: 5
-  m_Name: LoginSceneManager
+  m_Name: StartSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1595,9 +1601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f28c07d98c9bd1498436edbf11eb276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginDialog: {fileID: 0}
-  registerDialog: {fileID: 0}
-  clickStartObject: {fileID: 566652069}
+  ContinueBtn: {fileID: 1636872108}
+  NewStartBtn: {fileID: 566652069}
 --- !u!114 &1907846475
 MonoBehaviour:
   m_ObjectHideFlags: 0
