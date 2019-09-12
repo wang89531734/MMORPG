@@ -147,8 +147,8 @@ public abstract class BaseGameService : MonoBehaviour
     /// <param name="onError"></param>
     public void ValidateLoginToken(bool refreshToken, UnityAction<PlayerResult> onSuccess = null, UnityAction<string> onError = null)
     {
-        var playerId = GetPrefsPlayerId();
-        var loginToken = GetPrefsLoginToken();
+        var playerId = 123.ToString();//GetPrefsPlayerId();
+        var loginToken = 123.ToString();//GetPrefsLoginToken();
         HandleServiceCall();
         DoValidateLoginToken(playerId, loginToken, refreshToken, (finishResult) => HandleResult(finishResult, onSuccess, onError));
     }
