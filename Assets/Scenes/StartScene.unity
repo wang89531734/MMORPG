@@ -517,12 +517,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a64bd015c7a9afa48aca48f2ce848510, type: 3}
---- !u!1 &566652069 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1243895715605012, guid: a64bd015c7a9afa48aca48f2ce848510,
-    type: 3}
-  m_PrefabInstance: {fileID: 566652068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1099315812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1032,6 +1026,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4b83508962767bc4aa6a7922df45cc62,
         type: 3}
+    - target: {fileID: 114914420262988696, guid: a64bd015c7a9afa48aca48f2ce848510,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickStart
+      objectReference: {fileID: 0}
     - target: {fileID: 114048912094666378, guid: a64bd015c7a9afa48aca48f2ce848510,
         type: 3}
       propertyPath: m_Sprite
@@ -1391,12 +1390,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599347292}
   m_CullTransparentMesh: 0
---- !u!1 &1636872108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1243895715605012, guid: a64bd015c7a9afa48aca48f2ce848510,
-    type: 3}
-  m_PrefabInstance: {fileID: 1353336595}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1651604937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1601,8 +1594,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f28c07d98c9bd1498436edbf11eb276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContinueBtn: {fileID: 1636872108}
-  NewStartBtn: {fileID: 566652069}
+  loginDialog: {fileID: 0}
+  registerDialog: {fileID: 0}
+  clickStartObject: {fileID: 0}
 --- !u!114 &1907846475
 MonoBehaviour:
   m_ObjectHideFlags: 0

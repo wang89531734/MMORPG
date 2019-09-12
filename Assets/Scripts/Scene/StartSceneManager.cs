@@ -16,7 +16,6 @@ public class StartSceneManager : MonoBehaviour
             return;
         }
         Singleton = this;
-        //HideLoginDialog();
         ShowClickStart();
     }
 
@@ -37,7 +36,6 @@ public class StartSceneManager : MonoBehaviour
     private void OnValidateLoginTokenError(string error)
     {
         var gameInstance = GameInstance.Singleton;
-        //ShowLoginDialog();
     }
 
     /// <summary>
