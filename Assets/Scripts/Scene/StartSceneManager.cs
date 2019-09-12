@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoginSceneManager : MonoBehaviour
+public class StartSceneManager : MonoBehaviour
 {
-    public static LoginSceneManager Singleton { get; private set; }
+    public static StartSceneManager Singleton { get; private set; }
     public UIAuthentication loginDialog;
     public UIAuthentication registerDialog;
     public GameObject clickStartObject;
@@ -16,7 +16,7 @@ public class LoginSceneManager : MonoBehaviour
             return;
         }
         Singleton = this;
-        HideLoginDialog();
+        //HideLoginDialog();
         ShowClickStart();
     }
 
@@ -37,39 +37,21 @@ public class LoginSceneManager : MonoBehaviour
     private void OnValidateLoginTokenError(string error)
     {
         var gameInstance = GameInstance.Singleton;
-        ShowLoginDialog();
+        //ShowLoginDialog();
     }
 
-    public void ShowLoginDialog()
-    {
-        if (loginDialog != null)
-            loginDialog.Show();
-    }
-
-    public void HideLoginDialog()
-    {
-        if (loginDialog != null)
-            loginDialog.Hide();
-    }
-
-    public void ShowRegisterDialog()
-    {
-        if (registerDialog != null)
-            registerDialog.Show();
-    }
-
-    public void HideRegisterDialog()
-    {
-        if (registerDialog != null)
-            registerDialog.Hide();
-    }
-
+    /// <summary>
+    /// 显示开始按钮
+    /// </summary>
     public void ShowClickStart()
     {
         if (clickStartObject != null)
             clickStartObject.SetActive(true);
     }
 
+    /// <summary>
+    /// 关闭开始按钮
+    /// </summary>
     public void HideClickStart()
     {
         if (clickStartObject != null)

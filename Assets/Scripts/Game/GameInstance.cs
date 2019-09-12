@@ -74,7 +74,7 @@ public partial class GameInstance : MonoBehaviour
         HideInputDialog();
         HideRewardItemsDialog();
         HideLoading();
-        LoadLoginScene();
+        LoadStartScene();
     }
 
     private void OnGameServiceStart()
@@ -126,7 +126,7 @@ public partial class GameInstance : MonoBehaviour
         isPlayerClearStageListLoaded = false;
         isAvailableLootBoxListLoaded = false;
         isAvailableIapPackageListLoaded = false;
-        LoadLoginScene();
+        LoadStartScene();
     }
 
     public void OnGameServiceItemResult(ItemResult result)
@@ -612,7 +612,7 @@ public partial class GameInstance : MonoBehaviour
     #endregion
 
     #region Simplified Scene Loading Functions
-    public void LoadLoginScene(bool loadIfNotLoaded = false)
+    public void LoadStartScene(bool loadIfNotLoaded = false)
     {
         LoadSceneIfNotLoaded(loginScene, loadIfNotLoaded);
     }
