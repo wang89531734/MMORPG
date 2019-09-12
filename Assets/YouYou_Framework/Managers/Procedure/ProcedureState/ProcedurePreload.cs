@@ -14,7 +14,7 @@ namespace YouYou
         {
             base.OnEnter();
             //GameEntry.Event.CommonEvent.AddEventListener(SysEventId.LoadOneDataTableComplete, OnLoadDataTableComplete);
-            //GameEntry.DataTable.LoadDataTableAsync();
+            GameEntry.DataTable.LoadDataTableAsync();
         }
 
         public override void OnUpdate()

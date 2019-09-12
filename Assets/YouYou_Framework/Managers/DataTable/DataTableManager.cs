@@ -27,7 +27,7 @@ namespace YouYou
 
         public void LoadDataTable()
         {
-            
+           
             //所有表Load完毕
             GameEntry.Event.CommonEvent.Dispatch(SysEventId.LoadDataTableComplete);
         }
@@ -42,7 +42,8 @@ namespace YouYou
 
         public void Clear()
         {
-           
+            //每个表都Clear
+            ChapterDBModel.Clear();
         }
     }
 }
