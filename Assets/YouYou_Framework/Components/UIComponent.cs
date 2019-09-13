@@ -45,6 +45,8 @@ namespace YouYou
         /// </summary>
         private float m_CurrScreen = 0;
 
+        private UIManager m_UIManager;
+
         protected override void OnAwake()
         {
             base.OnAwake();
@@ -61,6 +63,8 @@ namespace YouYou
                 UIGroup group = UIGroups[i];
                 m_UIGroupDic[group.Id] = group;
             }
+
+            m_UIManager = new UIManager();
         }
 
         #region UI适配
@@ -109,6 +113,16 @@ namespace YouYou
             return group;
         }
         #endregion
+
+        /// <summary>
+        /// 打开UI窗体
+        /// </summary>
+        /// <param name="uiFormId"></param>
+        /// <param name="userData"></param>
+        internal void OpenUIForm(int uiFormId, object userData = null)
+        {
+            m_UIManager.OpenUIForm(uiFormId,userData);
+        }
 
         public void OnUpdate()
         {
