@@ -39,7 +39,7 @@ namespace YouYou
         /// <summary>
         /// 加载数据表数据
         /// </summary>
-        private void LoadData()
+        public void LoadData()
         {
             byte[] buffer = GameEntry.Resource.GetFileBuffer(string.Format("{0}/download/DataTable/{1}.bytes",GameEntry.Resource.LocalFilePath,DataTableName));
 
