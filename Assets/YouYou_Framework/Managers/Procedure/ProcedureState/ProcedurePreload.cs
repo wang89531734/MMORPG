@@ -27,6 +27,7 @@ namespace YouYou
         {
             base.OnLeave();
             GameEntry.Event.CommonEvent.RemoveEventListener(SysEventId.LoadDataTableComplete, OnLoadDataTableComplete);
+            GameEntry.Event.CommonEvent.AddEventListener(SysEventId.LoadOneDataTableComplete, OnLoadOneDataTableComplete);
         }
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace YouYou
         /// <param name="userData"></param>
         private void OnLoadDataTableComplete(object userData)
         {
-            Debug.Log("加载所有表完毕");
+
         }
 
         /// <summary>

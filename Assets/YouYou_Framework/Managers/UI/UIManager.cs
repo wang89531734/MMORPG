@@ -14,10 +14,18 @@ namespace YouYou
         internal void OpenUIForm(int uiFormId,object userData=null)
         {
             //1.¶Á±í
+
+            Sys_UIFormEntity entity = GameEntry.DataTable.DataTableManager.Sys_UIFormDBModel.Get(uiFormId);
+
+            if (entity == null)
+            {
+                return;
+            }
 #if DISABLE_ASSETBUNDLE && UNITY_EDITOR
 
-            //Object obj = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            
+            string path = string.Format("Assets/Download/UI/UIPrefab", entity.AssetPath_Chinese);
+            Object obj = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
+
 #else
 
 #endif

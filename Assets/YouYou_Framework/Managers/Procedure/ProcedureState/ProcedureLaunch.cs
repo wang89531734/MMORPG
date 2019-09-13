@@ -13,13 +13,12 @@ namespace YouYou
         public override void OnEnter()
         {
             base.OnEnter();
-                  
-            Debug.Log("执行启动流程");
         }
 
         public override void OnUpdate()
         {
             base.OnUpdate();
+            GameEntry.Procedure.ChangeState(ProcedureState.CheckVersion);
         }
 
         public override void OnLeave()
