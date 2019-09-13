@@ -45,7 +45,7 @@ namespace YouYou
         /// <param name="userData"></param>
         private void OnLoadOneDataTableComplete(object userData)
         {
-            Debug.Log(userData);
+      
         }
 
         public override void OnDestroy()
