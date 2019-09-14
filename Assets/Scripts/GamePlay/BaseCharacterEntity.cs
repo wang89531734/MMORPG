@@ -9,9 +9,9 @@ using UnityEditor;
 public abstract class BaseCharacterEntity : MonoBehaviour
 {
     public const string ANIM_ACTION_STATE = "_Action";
-    [Header("Animator")]
+
     [SerializeField]
-    private RuntimeAnimatorController animatorController;
+    private AnimatorOverrideController animatorController;
 
     [Header("UIs/Effects/Entities Containers")]
     [Tooltip("The transform where we're going to spawn uis")]
@@ -43,7 +43,7 @@ public abstract class BaseCharacterEntity : MonoBehaviour
         get
         {
             if (cacheAnimatorController == null)
-                cacheAnimatorController = new AnimatorOverrideController(animatorController);
+                cacheAnimatorController = animatorController;
             return cacheAnimatorController;
         }
     }
@@ -132,16 +132,6 @@ public abstract class BaseCharacterEntity : MonoBehaviour
         if (damageContainer == null)
             damageContainer = TempTransform;
     }
-
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        var cacheAnimator = GetComponent<Animator>();
-        if (animatorController == null && cacheAnimator != null)
-            animatorController = cacheAnimator.runtimeAnimatorController;
-        EditorUtility.SetDirty(gameObject);
-    }
-#endif
 
     public void Revive()
     {
