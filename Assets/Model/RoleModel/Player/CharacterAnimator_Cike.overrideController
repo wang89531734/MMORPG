@@ -6,6 +6,6 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u65B0\u5EFA\u52A8\u753B\u5668\u8986\u76D6\u63A7\u5236\u5668"
+  m_Name: CharacterAnimator_Cike
   m_Controller: {fileID: 0}
   m_Clips: []

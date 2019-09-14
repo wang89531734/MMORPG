@@ -23,23 +23,30 @@ namespace YouYou
             }
 #if DISABLE_ASSETBUNDLE && UNITY_EDITOR
 
+            UIFormBase formBase = null;
+
             string path = string.Format("Assets/Download/UI/UIPrefab/{0}.prefab", entity.AssetPath_Chinese);
  
             //加载镜像
             Object obj = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
 
-            if (obj==null)
-            {
-                Debug.Log("找不到物体");
-            }
             GameObject uiObj = Object.Instantiate(obj) as GameObject;
 
             uiObj.transform.SetParent(GameEntry.UI.GetUIGroup(entity.UIGroupId).Group);
             uiObj.transform.localPosition = Vector3.zero;
             uiObj.transform.localScale = Vector3.one;
+
+            formBase = uiObj.GetComponent<UIFormBase>();
+            formBase.Init(uiFormId, entity.UIGroupId, entity.DisableUILayer == 1, entity.IsLock == 1, userData);
+            formBase.Open(userData);
 #else
 
 #endif
+        }
+
+        internal void CloseUIForm(UIFormBase formBase)
+        {
+            formBase.ToClose();
         }
     }
 }

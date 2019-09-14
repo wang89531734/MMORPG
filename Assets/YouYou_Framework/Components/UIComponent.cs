@@ -124,6 +124,11 @@ namespace YouYou
             m_UIManager.OpenUIForm(uiFormId,userData);
         }
 
+        internal void CloseUIForm(UIFormBase formBase)
+        {
+            m_UIManager.CloseUIForm(formBase);
+        }
+
         public void OnUpdate()
         {
 
