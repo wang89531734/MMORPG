@@ -38,7 +38,6 @@ namespace YouYou
 
             formBase = uiObj.GetComponent<UIFormBase>();
             formBase.Init(uiFormId, entity.UIGroupId, entity.DisableUILayer == 1, entity.IsLock == 1, userData);
-            formBase.Open(userData);
 #else
 
 #endif

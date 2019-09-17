@@ -81,21 +81,28 @@ namespace YouYou
             GroupId = groupId;
             DisableUILayer = disableUILayer;
             IsLock = isLock;
-            UserData = userData;
-
-            OnInit(UserData);
+            UserData = userData;           
         }
 
-        internal void Open(object userData)
+        private void Start()
         {
-            UserData = userData;
+            OnInit(UserData);
+            Open(UserData,true);
+        }
+
+        internal void Open(object userData,bool isFromInit=false)
+        {
+            if (!isFromInit)
+            {
+                UserData = userData;
+            }         
 
             if (!DisableUILayer)
             {
                 //进行层级管理 增加层级
             }
 
-            OnOpen(userData);
+            OnOpen(UserData);
         }
 
         public void Close()
