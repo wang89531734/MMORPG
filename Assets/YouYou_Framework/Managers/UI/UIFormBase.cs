@@ -100,6 +100,7 @@ namespace YouYou
             if (!DisableUILayer)
             {
                 //进行层级管理 增加层级
+                GameEntry.UI.SetSortingOrder(this, true);
             }
 
             OnOpen(UserData);
@@ -115,12 +116,13 @@ namespace YouYou
             if (!DisableUILayer)
             {
                 //进行层级管理 减少层级
+                GameEntry.UI.SetSortingOrder(this, false);
             }
 
             OnClose();
 
-            //先销毁 以后改成对象池
-            Destroy(gameObject);
+            CloseTime = Time.time;
+            GameEntry.UI.Enqueue(this);
         }
 
         private void OnDestroy()
