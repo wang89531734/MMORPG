@@ -117,23 +117,9 @@ public abstract class BaseGamePlayManager : MonoBehaviour
             Time.timeScale = 1;
             GameInstance.Singleton.OnGameServiceFinishStageResult(result);
             uiWin.SetData(result);
-            if (uiFriendRequest != null && Helper != null && !Helper.isFriend)
-            {
-                uiFriendRequest.SetData(Helper);
-                uiFriendRequest.eventFriendRequestSuccess.AddListener(() =>
-                {
-                    uiFriendRequest.Hide();
-                });
-                uiFriendRequest.eventHide.AddListener(() =>
-                {
-                    uiWin.Show();
-                });
-                uiFriendRequest.Show();
-            }
-            else
-            {
-                uiWin.Show();
-            }
+           
+            uiWin.Show();
+            
         }, (error) =>
         {
             GameInstance.Singleton.OnGameServiceError(error, WinGame);
@@ -174,13 +160,12 @@ public abstract class BaseGamePlayManager : MonoBehaviour
 
     public void Restart()
     {
-        StartStage(PlayingStage, Helper);
+        StartStage(PlayingStage);
     }
 
-    public static void StartStage(BaseStage data, Player helper)
+    public static void StartStage(BaseStage data)
     {
         PlayingStage = data;
-        Helper = helper;
         GameInstance.GameService.StartStage(data.Id, (result) =>
         {
             GameInstance.Singleton.OnGameServiceStartStageResult(result);

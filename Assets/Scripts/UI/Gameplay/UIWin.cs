@@ -117,6 +117,6 @@ public class UIWin : UIDataItem<FinishStageResult>
     {
         var nextStage = NextStage;
         if (nextStage != null)
-            BaseGamePlayManager.StartStage(nextStage, null);
+            BaseGamePlayManager.StartStage(nextStage);
     }
 }

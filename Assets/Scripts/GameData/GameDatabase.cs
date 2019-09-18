@@ -47,10 +47,6 @@ public class GameDatabase : ScriptableObject
     [Tooltip("List of stages that will be unlocked when begin the game")]
     public List<BaseStage> unlockStages;
 
-    [Header("Fake data")]
-    [Tooltip("List of fake players that will be shown in helper selection before start battle scene")]
-    public List<FakePlayer> fakePlayers;
-
     [Header("Gameplay")]
     [Tooltip("Base attributes for all characters while battle")]
     public CalculationAttributes characterBaseAttributes;

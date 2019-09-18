@@ -26,30 +26,6 @@ public abstract class BaseGameService : MonoBehaviour
         }
     }
 
-    public void SetPrefsLogin(string playerId, string loginToken)
-    {
-        string oldPlayerId = PlayerPrefs.GetString(Consts.KeyPlayerId, string.Empty);
-        // Delete gameplay settings when difference player login
-        if (!oldPlayerId.Equals(playerId))
-        {
-            PlayerPrefs.DeleteKey(Consts.KeyIsAutoPlay);
-            PlayerPrefs.DeleteKey(Consts.KeyIsSpeedMultiply);
-        }
-        PlayerPrefs.SetString(Consts.KeyPlayerId, playerId);
-        PlayerPrefs.SetString(Consts.KeyLoginToken, loginToken);
-        PlayerPrefs.Save();
-    }
-
-    public string GetPrefsPlayerId()
-    {
-        return PlayerPrefs.GetString(Consts.KeyPlayerId);
-    }
-
-    public string GetPrefsLoginToken()
-    {
-        return PlayerPrefs.GetString(Consts.KeyLoginToken);
-    }
-
     public void Logout(UnityAction onLogout = null)
     {
         Player.CurrentPlayer = null;
@@ -60,7 +36,6 @@ public abstract class BaseGameService : MonoBehaviour
         PlayerItem.ClearData();
         PlayerStamina.ClearData();
         PlayerUnlockItem.ClearData();
-        SetPrefsLogin("", "");
         onLogout();
     }
 
@@ -137,20 +112,6 @@ public abstract class BaseGameService : MonoBehaviour
         Debug.Log("Call Service: GuestLogin");
         HandleServiceCall();
         DoGuestLogin(deviceId, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
-    /// <summary>
-    /// 检查是否有存档
-    /// </summary>
-    /// <param name="refreshToken"></param>
-    /// <param name="onSuccess"></param>
-    /// <param name="onError"></param>
-    public void ValidateLoginToken(bool refreshToken, UnityAction<PlayerResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        var playerId = 123.ToString();//GetPrefsPlayerId();
-        var loginToken = 123.ToString();//GetPrefsLoginToken();
-        HandleServiceCall();
-        DoValidateLoginToken(playerId, loginToken, refreshToken, (finishResult) => HandleResult(finishResult, onSuccess, onError));
     }
 
     /// <summary>
@@ -514,76 +475,6 @@ public abstract class BaseGameService : MonoBehaviour
         DoGetAvailableIapPackageList((finishResult) => HandleResult(finishResult, onSuccess, onError));
     }
 
-    public void GetHelperList(UnityAction<FriendListResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        Debug.Log("Call Service: GetRandomPlayerList");
-        var player = Player.CurrentPlayer;
-        var playerId = player.Id;
-        var loginToken = player.LoginToken;
-        HandleServiceCall();
-        DoGetHelperList(playerId, loginToken, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
-    public void GetFriendList(UnityAction<FriendListResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        Debug.Log("Call Service: GetFriendList");
-        var player = Player.CurrentPlayer;
-        var playerId = player.Id;
-        var loginToken = player.LoginToken;
-        HandleServiceCall();
-        DoGetFriendList(playerId, loginToken, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
-    public void GetFriendRequestList(UnityAction<FriendListResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        Debug.Log("Call Service: GetFriendRequestList");
-        var player = Player.CurrentPlayer;
-        var playerId = player.Id;
-        var loginToken = player.LoginToken;
-        HandleServiceCall();
-        DoGetFriendRequestList(playerId, loginToken, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
-    public void FriendRequest(string targetPlayerId, UnityAction<GameServiceResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        Debug.Log("Call Service: SendFriendRequest");
-        var player = Player.CurrentPlayer;
-        var playerId = player.Id;
-        var loginToken = player.LoginToken;
-        HandleServiceCall();
-        DoFriendRequest(playerId, loginToken, targetPlayerId, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
-    public void FriendAccept(string targetPlayerId, UnityAction<GameServiceResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        Debug.Log("Call Service: SendFriendAccept");
-        var player = Player.CurrentPlayer;
-        var playerId = player.Id;
-        var loginToken = player.LoginToken;
-        HandleServiceCall();
-        DoFriendAccept(playerId, loginToken, targetPlayerId, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
-    public void FriendDecline(string targetPlayerId, UnityAction<GameServiceResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        Debug.Log("Call Service: SendFriendDecline");
-        var player = Player.CurrentPlayer;
-        var playerId = player.Id;
-        var loginToken = player.LoginToken;
-        HandleServiceCall();
-        DoFriendDecline(playerId, loginToken, targetPlayerId, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
-    public void FriendDelete(string targetPlayerId, UnityAction<GameServiceResult> onSuccess = null, UnityAction<string> onError = null)
-    {
-        Debug.Log("Call Service: SendFriendDelete");
-        var player = Player.CurrentPlayer;
-        var playerId = player.Id;
-        var loginToken = player.LoginToken;
-        HandleServiceCall();
-        DoFriendDelete(playerId, loginToken, targetPlayerId, (finishResult) => HandleResult(finishResult, onSuccess, onError));
-    }
-
     public void GetServiceTime()
     {
         DoGetServiceTime((finishResult) =>
@@ -620,7 +511,6 @@ public abstract class BaseGameService : MonoBehaviour
     protected abstract void DoOpenLootBox(string playerId, string loginToken, string lootBoxDataId, int packIndex, UnityAction<ItemResult> onFinish);
     protected abstract void DoOpenIapPackage_iOS(string playerId, string loginToken, string iapPackageDataId, string receipt, UnityAction<ItemResult> onFinish);
     protected abstract void DoOpenIapPackage_Android(string playerId, string loginToken, string iapPackageDataId, string data, string signature, UnityAction<ItemResult> onFinish);
-    protected abstract void DoGetHelperList(string playerId, string loginToken, UnityAction<FriendListResult> onFinish);
     protected abstract void DoGetFriendList(string playerId, string loginToken, UnityAction<FriendListResult> onFinish);
     protected abstract void DoGetFriendRequestList(string playerId, string loginToken, UnityAction<FriendListResult> onFinish);
     protected abstract void DoFriendRequest(string playerId, string loginToken, string targetPlayerId, UnityAction<GameServiceResult> onFinish);

@@ -5,26 +5,6 @@ using UnityEngine.Events;
 
 public partial class LiteDbGameService
 {
-    protected override void DoGetHelperList(string playerId, string loginToken, UnityAction<FriendListResult> onFinish)
-    {
-        // Random players from fake players list
-        var result = new FriendListResult();
-        var gameDb = GameInstance.GameDatabase;
-        foreach (var fakePlayer in gameDb.fakePlayers)
-        {
-            if (fakePlayer.level <= 0 || fakePlayer.mainCharacter == null || fakePlayer.mainCharacterLevel <= 0)
-                continue;
-            var entry = new Player();
-            entry.Id = "fake_" + fakePlayer.profileName;
-            entry.ProfileName = fakePlayer.profileName;
-            entry.Exp = fakePlayer.GetExp();
-            entry.MainCharacter = fakePlayer.mainCharacter.Id;
-            entry.MainCharacterExp = fakePlayer.GetMainCharacterExp();
-            result.list.Add(entry);
-        }
-        onFinish(result);
-    }
-
     protected override void DoGetFriendList(string playerId, string loginToken, UnityAction<FriendListResult> onFinish)
     {
         var result = new FriendListResult();
