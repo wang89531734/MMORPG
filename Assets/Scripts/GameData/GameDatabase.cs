@@ -7,28 +7,29 @@ using UnityEditor;
 
 public class GameDatabase : ScriptableObject
 {
-    [Header("Player database")]
+    [Header("玩家数据库")]
+    [Header("玩家最大等级")]
     [Range(1, 1000)]
     public int playerMaxLevel;
-    [Tooltip("Requires Exp to levelup for each level")]
+    [Header("经验表")]
     public Int32Attribute playerExpTable;
-    [Tooltip("`Soft Currency`, `Start Amount` is start amount when create new player")]
+    [Header("铜钱")]
     public Currency softCurrency = new Currency() { id = "GOLD", startAmount = 0 };
-    [Tooltip("`Hard Currency`, `Start Amount` is start amount when create new player")]
+    [Header("钻石")]
     public Currency hardCurrency = new Currency() { id = "GEM", startAmount = 0 };
+
     public Stamina stageStamina = new Stamina() { id = "STAGE_STAMINA", maxAmountTable = new Int32Attribute() };
+    [Header("阵型")]
     public List<Formation> stageFormations = new List<Formation>() {
         new Formation() { id = "STAGE_FORMATION_A" },
         new Formation() { id = "STAGE_FORMATION_B" },
         new Formation() { id = "STAGE_FORMATION_C" },
     };
 
-    [Header("Item database")]
-    [Tooltip("List of game items, place all items here (includes character, equipment)")]
+    [Header("物品数据")]
     public List<BaseItem> items;
 
-    [Header("Stage database")]
-    [Tooltip("List of game stages, place all stages here")]
+    [Header("关卡数据")]
     public List<BaseStage> stages;
 
     [Header("Loot Box database")]
