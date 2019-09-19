@@ -106,5 +106,8 @@ namespace YouYou
         {
             m_MainSocket.SendMsg(buffer);
         }
+
+        //public SocketReceiveMS
+       
     }
 }
