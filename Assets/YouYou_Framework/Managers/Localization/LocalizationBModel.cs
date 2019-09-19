@@ -7,12 +7,17 @@ using YouYou;
 /// <summary>
 /// Sys_Localization数据管理
 /// </summary>
-public partial class Sys_LocalizationBModel : DataTableDBModelBase<Sys_LocalizationBModel, DataTableEntityBase>
+public partial class LocalizationBModel : DataTableDBModelBase<LocalizationBModel, DataTableEntityBase>
 {
     /// <summary>
     /// 文件名称
     /// </summary>
-    public override string DataTableName { get { return "Sys_Localization"; } }
+    public override string DataTableName { get { return "Localization/"+GameEntry.Localization.CurrLanguage.ToString(); } }
+
+    /// <summary>
+    /// 当前语言字典
+    /// </summary>
+    public Dictionary<string, string> LocalizationDic = new Dictionary<string, string>();
 
     /// <summary>
     /// 加载列表
@@ -24,8 +29,7 @@ public partial class Sys_LocalizationBModel : DataTableDBModelBase<Sys_Localizat
 
         for (int i = 0; i < rows; i++)
         {
-            //entity.Key = ms.ReadUTF8String();
-
+            LocalizationDic[ms.ReadUTF8String()] = ms.ReadUTF8String();
         }
     }
 }

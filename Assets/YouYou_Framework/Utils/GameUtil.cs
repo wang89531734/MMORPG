@@ -1,8 +1,3 @@
-//===================================================
-//作    者：边涯  http://www.u3dol.com  QQ群：87481002
-//创建时间：2016-06-11 12:53:31
-//备    注：
-//===================================================
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -156,5 +151,15 @@ public class GameUtil
             go.layer = parent.gameObject.layer;
         }
         return go;
+    }
+
+    /// <summary>
+    /// 获取UI资源路径
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    public static string GetUIResPath(string path)
+    {
+        return string.Format("Assets/Download/UI/UIRes/{0}.png",path);
     }
 }

@@ -11,40 +11,13 @@ namespace YouYou
             InitDBModel();
         }
 
-        /// <summary>
-        /// 章表
-        /// </summary>
         public Sys_CodeDBModel Sys_CodeDBModel { get; private set; }
-
-        /// <summary>
-        /// 章表
-        /// </summary>
         public Sys_EffectDBModel Sys_EffectDBModel { get; private set; }
-
-        /// <summary>
-        /// 章表
-        /// </summary>
         public Sys_PrefabDBModel Sys_PrefabDBModel { get; private set; }
-
-        /// <summary>
-        /// 章表
-        /// </summary>
         public Sys_SoundDBModel Sys_SoundDBModel { get; private set; }
-
-        /// <summary>
-        /// 章表
-        /// </summary>
         public Sys_StorySoundDBModel Sys_StorySoundDBModel { get; private set; }
-
-        /// <summary>
-        /// 章表
-        /// </summary>
         public Sys_UIFormDBModel Sys_UIFormDBModel { get; private set; }
-
-        ///// <summary>
-        ///// 章表
-        ///// </summary>
-        //public ChapterDBModel ChapterDBModel { get; private set; }
+        public LocalizationBModel LocalizationBModel { get; private set; }
 
         /// <summary>
         /// 章表
@@ -68,6 +41,7 @@ namespace YouYou
             Sys_SoundDBModel = new Sys_SoundDBModel();
             Sys_StorySoundDBModel = new Sys_StorySoundDBModel();
             Sys_UIFormDBModel = new Sys_UIFormDBModel();
+            LocalizationBModel = new LocalizationBModel();
 
             ChapterDBModel = new ChapterDBModel();
             GameLevelDBModel = new GameLevelDBModel();
@@ -82,6 +56,7 @@ namespace YouYou
             Sys_SoundDBModel.LoadData();
             Sys_StorySoundDBModel.LoadData();
             Sys_UIFormDBModel.LoadData();
+            LocalizationBModel.LoadData();
 
             ChapterDBModel.LoadData();
             GameLevelDBModel.LoadData();
@@ -101,7 +76,16 @@ namespace YouYou
         public void Clear()
         {
             //每个表都Clear
+            Sys_UIFormDBModel.Clear();
+            Sys_EffectDBModel.Clear();
+            Sys_PrefabDBModel.Clear();
+            Sys_SoundDBModel.Clear();
+            Sys_StorySoundDBModel.Clear();
+            Sys_UIFormDBModel.Clear();
+            LocalizationBModel.Clear();
+
             ChapterDBModel.Clear();
+            GameLevelDBModel.Clear();
         }
     }
 }
