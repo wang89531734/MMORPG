@@ -20,20 +20,20 @@ namespace YouYou
         /// <summary>
         /// 系统相关数据
         /// </summary>
-        public SysData SysData
+        public SysDataManager SysData
         {
             get;
             private set;
         }
 
-        ///// <summary>
-        ///// 用户相关数据
-        ///// </summary>
-        //public UserData UserData
-        //{
-        //    get;
-        //    private set;
-        //}
+        /// <summary>
+        /// 用户相关数据
+        /// </summary>
+        public UserDataManager UserDataManager
+        {
+            get;
+            private set;
+        }
 
         ///// <summary>
         ///// 关卡地图数据

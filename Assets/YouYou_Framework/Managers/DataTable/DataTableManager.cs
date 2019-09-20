@@ -30,6 +30,11 @@ namespace YouYou
         public GameLevelDBModel GameLevelDBModel { get; private set; }
 
         /// <summary>
+        /// 任务表
+        /// </summary>
+        public TaskDBModel TaskDBModel { get; private set; }
+
+        /// <summary>
         /// 初始化DBModel
         /// </summary>
         private void InitDBModel()
@@ -45,6 +50,7 @@ namespace YouYou
 
             ChapterDBModel = new ChapterDBModel();
             GameLevelDBModel = new GameLevelDBModel();
+            TaskDBModel = new TaskDBModel();
         }
 
         public void LoadDataTable()
@@ -60,6 +66,7 @@ namespace YouYou
 
             ChapterDBModel.LoadData();
             GameLevelDBModel.LoadData();
+            TaskDBModel.LoadData();
 
             //所有表Load完毕
             GameEntry.Event.CommonEvent.Dispatch(SysEventId.LoadDataTableComplete);
@@ -86,6 +93,7 @@ namespace YouYou
 
             ChapterDBModel.Clear();
             GameLevelDBModel.Clear();
+            TaskDBModel.Clear();
         }
     }
 }

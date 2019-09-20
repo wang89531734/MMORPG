@@ -20,7 +20,28 @@ namespace YouYou
 
         private SocketManager m_SocketManager;
 
-        public MMO_MemoryStream CommonMemoryStream
+        ///// <summary>
+        ///// 通用的MemoryStream
+        ///// </summary>
+        //public MMO_MemoryStream CommonMemoryStream
+        //{
+        //    get;
+        //    private set;
+        //}
+
+        /// <summary>
+        /// 发送用的MS
+        /// </summary>
+        public MMO_MemoryStream SocketSendMS
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 接收用的MS
+        /// </summary>
+        public MMO_MemoryStream SocketReceiveMS
         {
             get;
             private set;
@@ -31,7 +52,8 @@ namespace YouYou
             base.OnAwake();
             GameEntry.RegisterUpdateComponent(this);
             m_SocketManager = new SocketManager();
-            CommonMemoryStream = new MMO_MemoryStream();
+            SocketSendMS = new MMO_MemoryStream();
+            SocketReceiveMS = new MMO_MemoryStream();
         }
 
         protected override void OnStart()
@@ -73,8 +95,11 @@ namespace YouYou
 
             GameEntry.Pool.EnqueueClassObject(m_MainSocket);
 
-            CommonMemoryStream.Dispose();
-            CommonMemoryStream.Close();
+            SocketSendMS.Dispose();
+            SocketReceiveMS.Dispose();
+
+            SocketSendMS.Close();
+            SocketReceiveMS.Close();
         }
 
         public void OnUpdate()
@@ -105,9 +130,6 @@ namespace YouYou
         public void SendMsg(byte[] buffer)
         {
             m_MainSocket.SendMsg(buffer);
-        }
-
-        //public SocketReceiveMS
-       
+        }       
     }
 }
