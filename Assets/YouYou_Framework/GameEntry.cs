@@ -5,14 +5,11 @@ using UnityEngine;
 
 namespace YouYou
 {
-    /// <summary>
-    /// ÓÎÏ·Ö÷Èë¿Ú
-    /// </summary>
     public class GameEntry : MonoBehaviour
     {
-        #region ×é¼şÊôĞÔ
+        #region ç»„ä»¶å±æ€§
         /// <summary>
-        /// ÊÂ¼ş×é¼ş
+        /// äº‹ä»¶ç»„ä»¶
         /// </summary>
         public static EventComponent Event
         {
@@ -21,7 +18,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// Ê±¼ä×é¼ş
+        /// æ—¶é—´ç»„ä»¶
         /// </summary>
         public static TimeComponent Time
         {
@@ -30,7 +27,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// ×´Ì¬»ú×é¼ş
+        /// çŠ¶æ€æœºç»„ä»¶
         /// </summary>
         public static FsmComponent Fsm
         {
@@ -39,7 +36,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// Á÷³Ì×é¼ş
+        /// æµç¨‹ç»„ä»¶
         /// </summary>
         public static ProcedureComponent Procedure
         {
@@ -48,7 +45,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// Êı¾İ±í×é¼ş
+        /// æ•°æ®è¡¨ç»„ä»¶
         /// </summary>
         public static DataTableComponent DataTable
         {
@@ -57,7 +54,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// Socket×é¼ş
+        /// Socketç»„ä»¶
         /// </summary>
         public static SocketComponent Socket
         {
@@ -66,7 +63,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// Http×é¼ş
+        /// Httpç»„ä»¶
         /// </summary>
         public static HttpComponent Http
         {
@@ -75,7 +72,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// Êı¾İ×é¼ş
+        /// æ•°æ®ç»„ä»¶
         /// </summary>
         public static DataComponent Data
         {
@@ -83,42 +80,63 @@ namespace YouYou
             private set;
         }
 
+        /// <summary>
+        /// æœ¬åœ°åŒ–ç»„ä»¶
+        /// </summary>
         public static LocalizationComponent Localization
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// å¯¹è±¡æ± ç»„ä»¶
+        /// </summary>
         public static PoolComponent Pool
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// åœºæ™¯ç»„ä»¶
+        /// </summary>
         public static SceneComponent Scene
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// è®¾ç½®ç»„ä»¶
+        /// </summary>
         public static SettingComponent Setting
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// æ¸¸æˆå¯¹è±¡ç»„ä»¶
+        /// </summary>
         public static GameObjComponent GameObj
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// èµ„æºç»„ä»¶
+        /// </summary>
         public static ResourceComponent Resource
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// ä¸‹è½½ç»„ä»¶
+        /// </summary>
         public static DownloadComponent Download
         {
             get;
@@ -126,55 +144,67 @@ namespace YouYou
         }
 
         /// <summary>
-        /// UI×é¼ş
+        /// UIç»„ä»¶
         /// </summary>
         public static UIComponent UI
         {
             get;
             private set;
         }
+
+        public static LuaComponent Lua
+        {
+            get;
+            private set;
+        }
         #endregion
 
-        #region »ù´¡×é¼ş¹ÜÀí
+        #region åŸºç¡€ç»„ä»¶ç®¡ç†
         /// <summary>
-        /// »ù´¡×é¼şµÄÁĞ±í
+        /// åŸºç¡€ç»„ä»¶åˆ—è¡¨
         /// </summary>
         private static readonly LinkedList<YouYouBaseComponent> m_BaseComponentList = new LinkedList<YouYouBaseComponent>();
 
-        #region ×¢²á×é¼ş
+        #region RegisterComponent æ³¨å†Œç»„ä»¶
         /// <summary>
-        /// ×¢²á×é¼ş
+        /// æ³¨å†Œç»„ä»¶
         /// </summary>
         /// <param name="component"></param>
         internal static void RegisterBaseComponent(YouYouBaseComponent component)
         {
-            //»ñÈ¡µ½×é¼şÀàĞÍ
+            //è·å–åˆ°ç»„ä»¶ç±»å‹
             Type type = component.GetType();
 
             LinkedListNode<YouYouBaseComponent> curr = m_BaseComponentList.First;
-            while (curr!=null)
+            while (curr != null)
             {
                 if (curr.Value.GetType() == type) return;
                 curr = curr.Next;
             }
-
-            //°Ñ×é¼ş¼ÓÈë×îºóÒ»¸ö½Úµã
+            //æŠŠç»„ä»¶åŠ å…¥æœ€åä¸€ä¸ªèŠ‚ç‚¹
             m_BaseComponentList.AddLast(component);
         }
         #endregion
 
-        #region »ñÈ¡»ù´¡×é¼ş
+        #region GetBaseComponent è·å–åŸºç¡€ç»„ä»¶
+
+        /// <summary>
+        /// è·å–åŸºç¡€ç»„ä»¶
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         internal static T GetBaseComponent<T>() where T : YouYouBaseComponent
         {
             return (T)GetBaseComponent(typeof(T));
         }
 
         /// <summary>
-        /// »ñÈ¡»ù´¡×é¼ş
+        /// è·å–åŸºç¡€ç»„ä»¶
         /// </summary>
-        /// <param name="component"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         internal static YouYouBaseComponent GetBaseComponent(Type type)
-        {     
+        {
             LinkedListNode<YouYouBaseComponent> curr = m_BaseComponentList.First;
             while (curr != null)
             {
@@ -184,46 +214,15 @@ namespace YouYou
                 }
                 curr = curr.Next;
             }
+
             return null;
         }
         #endregion
-        #endregion
 
-        #region ¸üĞÂ×é¼ş¹ÜÀí
+        #region InitBaseComponents åˆå§‹åŒ–åŸºç¡€ç»„ä»¶
         /// <summary>
-        /// ¸üĞÂ×é¼şµÄÁĞ±í
+        /// åˆå§‹åŒ–åŸºç¡€ç»„ä»¶
         /// </summary>
-        private static readonly LinkedList<IUpdateComponent> m_UpdateComponentList = new LinkedList<IUpdateComponent>();
-
-        #region ×¢²á¸üĞÂ×é¼ş
-        /// <summary>
-        /// ×¢²á¸üĞÂ×é¼ş
-        /// </summary>
-        /// <param name="component"></param>
-        public static void RegisterUpdateComponent(IUpdateComponent component)
-        {
-            //°Ñ×é¼ş¼ÓÈë×îºóÒ»¸ö½Úµã
-            m_UpdateComponentList.AddLast(component);
-        }
-        #endregion
-
-        #region ÒÆ³ı¸üĞÂ×é¼ş
-        /// <summary>
-        /// ÒÆ³ı¸üĞÂ×é¼ş
-        /// </summary>
-        /// <param name="component"></param>
-        public static void RemoveUpdateComponent(IUpdateComponent component)
-        {
-           m_UpdateComponentList.Remove(component);      
-        }
-        #endregion
-        #endregion
-
-        void Start()
-        {
-            InitBaseComponents();
-        }
-
         private static void InitBaseComponents()
         {
             Event = GetBaseComponent<EventComponent>();
@@ -242,25 +241,99 @@ namespace YouYou
             Resource = GetBaseComponent<ResourceComponent>();
             Download = GetBaseComponent<DownloadComponent>();
             UI = GetBaseComponent<UIComponent>();
+            Lua = GetBaseComponent<LuaComponent>();
+        }
+        #endregion
+
+        #endregion
+
+        #region æ›´æ–°ç»„ä»¶ç®¡ç†
+        /// <summary>
+        /// æ›´æ–°ç»„ä»¶åˆ—è¡¨
+        /// </summary>
+        private static readonly LinkedList<IUpdateComponent> m_UpdateComponentList = new LinkedList<IUpdateComponent>();
+
+        #region RegisterUpdateComponent æ³¨å†Œæ›´æ–°ç»„ä»¶
+        /// <summary>
+        /// æ³¨å†Œæ›´æ–°ç»„ä»¶
+        /// </summary>
+        /// <param name="component"></param>
+        public static void RegisterUpdateComponent(IUpdateComponent component)
+        {
+            m_UpdateComponentList.AddLast(component);
+        }
+        #endregion
+
+        #region RemoveUpdateComponent ç§»é™¤æ›´æ–°ç»„ä»¶
+        /// <summary>
+        /// ç§»é™¤æ›´æ–°ç»„ä»¶
+        /// </summary>
+        /// <param name="component"></param>
+        public static void RemoveUpdateComponent(IUpdateComponent component)
+        {
+            m_UpdateComponentList.Remove(component);
+        }
+        #endregion
+
+
+        #endregion
+
+        void Start()
+        {
+            InitBaseComponents();
         }
 
         void Update()
         {
-            //Ñ­»·¸üĞÂ×é¼ş
-            for(LinkedListNode<IUpdateComponent> curr = m_UpdateComponentList.First; curr != null; curr = curr.Next)
+            //å¾ªç¯æ›´æ–°ç»„ä»¶
+            for (LinkedListNode<IUpdateComponent> curr = m_UpdateComponentList.First; curr != null; curr = curr.Next)
             {
                 curr.Value.OnUpdate();
             }
         }
 
+        /// <summary>
+        /// é”€æ¯
+        /// </summary>
         private void OnDestroy()
         {
-            //¹Ø±ÕËùÓĞ»ù´¡×é¼ş
+            //å…³é—­æ‰€æœ‰çš„åŸºç¡€ç»„ä»¶
             for (LinkedListNode<YouYouBaseComponent> curr = m_BaseComponentList.First; curr != null; curr = curr.Next)
             {
                 curr.Value.Shutdown();
             }
         }
+
+//        /// <summary>
+//        /// æ‰“å°æ—¥å¿—
+//        /// </summary>
+//        /// <param name="message"></param>
+//        public static void Log(LogCategory catetory, string message)
+//        {
+//            switch (catetory)
+//            {
+//                default:
+//                case LogCategory.Normal:
+//#if DEBUG_LOG_NORMAL
+//                    Debug.Log(message);
+//#endif
+//                    break;
+//                case LogCategory.Procedure:
+//#if DEBUG_LOG_PROCEDURE
+//                    Debug.Log(string.Format("<color=#ffffff>{0}</color>", message));
+//#endif
+//                    break;
+//                case LogCategory.Resource:
+//#if DEBUG_LOG_RESOURCE
+//                    Debug.Log(string.Format("<color=#ace44a>{0}</color>", message));
+//#endif
+//                    break;
+//                case LogCategory.Proto:
+//#if DEBUG_LOG_PROTO
+//                    Debug.Log(message);
+//#endif
+//                    break;
+//            }
+//        }
     }
 }
-

@@ -1,20 +1,31 @@
-using System;
+//===================================================
+//ä½œ    è€…ï¼šè¾¹æ¶¯  http://www.u3dol.com
+//åˆ›å»ºæ—¶é—´ï¼š
+//å¤‡    æ³¨ï¼š
+//===================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace YouYou
 {
     /// <summary>
-    /// ±äÁ¿»ùÀà
+    /// å˜é‡åŸºç±»
     /// </summary>
-    public abstract class VariableBase 
+    public abstract class VariableBase
     {
+        /// <summary>
+        /// è·å–å˜é‡ç±»å‹
+        /// </summary>
         public abstract Type Type
         {
             get;
         }
 
+        /// <summary>
+        /// å¼•ç”¨è®¡æ•°
+        /// </summary>
         public byte ReferenceCount
         {
             get;
@@ -22,7 +33,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// ±£Áô¶ÔÏó
+        /// ä¿ç•™å¯¹è±¡
         /// </summary>
         public void Retain()
         {
@@ -30,14 +41,14 @@ namespace YouYou
         }
 
         /// <summary>
-        /// ÊÍ·Å¶ÔÏó
+        /// é‡Šæ”¾å¯¹è±¡
         /// </summary>
         public void Release()
         {
             ReferenceCount--;
-            if (ReferenceCount<1)
+            if (ReferenceCount < 1)
             {
-                //»Ø³Ø²Ù×÷
+                //å›æ± æ“ä½œ
                 GameEntry.Pool.EnqueueVarObject(this);
             }
         }

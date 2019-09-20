@@ -1,28 +1,35 @@
+//===================================================
+//ä½œ    è€…ï¼šè¾¹æ¶¯  http://www.u3dol.com
+//åˆ›å»ºæ—¶é—´ï¼š
+//å¤‡    æ³¨ï¼š
+//===================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace YouYou
 {
+    /// <summary>
+    /// boolå˜é‡
+    /// </summary>
     public class VarBool : Variable<bool>
     {
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
         /// <returns></returns>
         public static VarBool Alloc()
         {
             VarBool var = GameEntry.Pool.DequeueVarObject<VarBool>();
-            var.Value = true;
+            var.Value = false;
             var.Retain();
             return var;
         }
 
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
-        /// <param name="value">³õÊ¼Öµ</param>
+        /// <param name="value">åˆå§‹å€¼</param>
         /// <returns></returns>
         public static VarBool Alloc(bool value)
         {
@@ -32,7 +39,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// VarInt->int
+        /// VarBool -> bool
         /// </summary>
         /// <param name="value"></param>
         public static implicit operator bool(VarBool value)

@@ -1,42 +1,21 @@
+//===================================================
+//ä½œ    è€…ï¼šè¾¹æ¶¯  http://www.u3dol.com
+//åˆ›å»ºæ—¶é—´ï¼š
+//å¤‡    æ³¨ï¼š
+//===================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace YouYou
+public class VarColor : MonoBehaviour 
 {
-    public class VarColor : Variable<Color>
-    {
-        /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
-        /// </summary>
-        /// <returns></returns>
-        public static VarColor Alloc()
-        {
-            VarColor var = GameEntry.Pool.DequeueVarObject<VarColor>();
-            var.Value = Color.clear;
-            var.Retain();
-            return var;
-        }
-
-        /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
-        /// </summary>
-        /// <param name="value">³õÊ¼Öµ</param>
-        /// <returns></returns>
-        public static VarColor Alloc(Color value)
-        {
-            VarColor var = Alloc();
-            var.Value = value;
-            return var;
-        }
-
-        /// <summary>
-        /// VarInt->int
-        /// </summary>
-        /// <param name="value"></param>
-        public static implicit operator Color(VarColor value)
-        {
-            return value.Value;
-        }
-    }
+	void Start () 
+	{
+		
+	}
+	
+	void Update () 
+	{
+		
+	}
 }

@@ -17,7 +17,7 @@ public static class GameObjectUtil
     /// <typeparam name="T"></typeparam>
     /// <param name="obj"></param>
     /// <returns></returns>
-    public static T GetOrCreatComponent<T>(this GameObject obj) where T : MonoBehaviour
+    public static T GetOrCreatComponent<T>(GameObject obj) where T : MonoBehaviour
     {
         T t = obj.GetComponent<T>();
         if (t == null)
@@ -32,9 +32,9 @@ public static class GameObjectUtil
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="parent"></param>
-    public static void SetParent(this GameObject obj, Transform parent)
+    public static void SetParent(GameObject obj, Transform parent)
     {
-        obj.transform.parent = parent;
+        obj.transform.SetParent(parent);
         obj.transform.localPosition = Vector3.zero;
         obj.transform.localScale = Vector3.one;
         obj.transform.localEulerAngles = Vector3.zero;
@@ -45,7 +45,7 @@ public static class GameObjectUtil
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="layerName"></param>
-    public static void SetLayer(this GameObject obj, string layerName)
+    public static void SetLayer(GameObject obj, string layerName)
     {
         Transform[] transArr = obj.transform.GetComponentsInChildren<Transform>();
         for (int i = 0; i < transArr.Length; i++)
@@ -54,7 +54,7 @@ public static class GameObjectUtil
         }
     }
 
-    public static void SetNull(this MonoBehaviour[] arr)
+    public static void SetNull(MonoBehaviour[] arr)
     {
         if (arr != null)
         {
@@ -66,7 +66,7 @@ public static class GameObjectUtil
         }
     }
 
-    public static void SetNull(this Transform[] arr)
+    public static void SetNull(Transform[] arr)
     {
         if (arr != null)
         {
@@ -78,7 +78,7 @@ public static class GameObjectUtil
         }
     }
 
-    public static void SetNull(this Sprite[] arr)
+    public static void SetNull(Sprite[] arr)
     {
         if (arr != null)
         {
@@ -90,7 +90,7 @@ public static class GameObjectUtil
         }
     }
 
-    public static void SetNull(this GameObject[] arr)
+    public static void SetNull(GameObject[] arr)
     {
         if (arr != null)
         {
@@ -109,7 +109,7 @@ public static class GameObjectUtil
     /// </summary>
     /// <param name="txtObj"></param>
     /// <param name="text"></param>
-    public static void SetText(this Text txtObj, string text, bool isAnimation = false, float duration = 0.2f, ScrambleMode scrambleMode = ScrambleMode.None)
+    public static void SetText(Text txtObj, string text, bool isAnimation = false, float duration = 0.2f, ScrambleMode scrambleMode = ScrambleMode.None)
     {
         if (txtObj != null)
         {
@@ -130,7 +130,7 @@ public static class GameObjectUtil
     /// </summary>
     /// <param name="sliderObj"></param>
     /// <param name="value"></param>
-    public static void SetSliderValue(this Slider sliderObj, float value)
+    public static void SetSliderValue(Slider sliderObj, float value)
     {
         if (sliderObj != null)
         {
@@ -143,7 +143,7 @@ public static class GameObjectUtil
     /// </summary>
     /// <param name="imgObj"></param>
     /// <param name="imgName"></param>
-    public static void SetImage(this Image imgObj, Sprite sprite)
+    public static void SetImage(Image imgObj, Sprite sprite)
     {
         if (imgObj != null)
         {

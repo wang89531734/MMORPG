@@ -1,13 +1,21 @@
+//===================================================
+//ä½œ    è€…ï¼šè¾¹æ¶¯  http://www.u3dol.com
+//åˆ›å»ºæ—¶é—´ï¼š
+//å¤‡    æ³¨ï¼š
+//===================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace YouYou
 {
+    /// <summary>
+    /// GameObjectå˜é‡
+    /// </summary>
     public class VarGameObject : Variable<GameObject>
     {
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
         /// <returns></returns>
         public static VarGameObject Alloc()
@@ -19,9 +27,9 @@ namespace YouYou
         }
 
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
-        /// <param name="value">³õÊ¼Öµ</param>
+        /// <param name="value">åˆå§‹å€¼</param>
         /// <returns></returns>
         public static VarGameObject Alloc(GameObject value)
         {
@@ -31,7 +39,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// VarInt->int
+        /// VarGameObject -> GameObject
         /// </summary>
         /// <param name="value"></param>
         public static implicit operator GameObject(VarGameObject value)

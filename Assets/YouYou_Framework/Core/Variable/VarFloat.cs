@@ -1,27 +1,35 @@
+//===================================================
+//ä½œ    è€…ï¼šè¾¹æ¶¯  http://www.u3dol.com
+//åˆ›å»ºæ—¶é—´ï¼š
+//å¤‡    æ³¨ï¼š
+//===================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace YouYou
 {
+    /// <summary>
+    /// floatå˜é‡
+    /// </summary>
     public class VarFloat : Variable<float>
     {
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
         /// <returns></returns>
         public static VarFloat Alloc()
         {
             VarFloat var = GameEntry.Pool.DequeueVarObject<VarFloat>();
-            var.Value = 0f;
+            var.Value = 0;
             var.Retain();
             return var;
         }
 
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
-        /// <param name="value">³õÊ¼Öµ</param>
+        /// <param name="value">åˆå§‹å€¼</param>
         /// <returns></returns>
         public static VarFloat Alloc(float value)
         {
@@ -31,7 +39,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// VarInt->int
+        /// VarFloat -> float
         /// </summary>
         /// <param name="value"></param>
         public static implicit operator float(VarFloat value)

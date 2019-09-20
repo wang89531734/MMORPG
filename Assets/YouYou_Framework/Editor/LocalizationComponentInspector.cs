@@ -1,3 +1,8 @@
+//===================================================
+//作    者：边涯  http://www.u3dol.com
+//创建时间：
+//备    注：
+//===================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +24,7 @@ namespace YouYou
 
         private void OnEnable()
         {
-            //�������Թ�ϵ
+            //建立属性关系
             m_CurrLanguage = serializedObject.FindProperty("m_CurrLanguage");
             serializedObject.ApplyModifiedProperties();
         }

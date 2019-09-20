@@ -1,3 +1,8 @@
+//===================================================
+//ä½œ    è€…ï¼šè¾¹æ¶¯  http://www.u3dol.com
+//åˆ›å»ºæ—¶é—´ï¼š
+//å¤‡    æ³¨ï¼š
+//===================================================
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,18 +11,18 @@ using UnityEngine;
 namespace YouYou
 {
     /// <summary>
-    /// ±äÁ¿·ºĞÍ»ùÀà
+    /// å˜é‡æ³›å‹åŸºç±»
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public  class Variable<T> : VariableBase
+    public class Variable<T> : VariableBase
     {
         /// <summary>
-        /// µ±Ç°´æ´¢µÄÕæÊµÖµ
+        /// å½“å‰å­˜å‚¨çš„çœŸå®å€¼
         /// </summary>
         public T Value;
 
         /// <summary>
-        /// ±äÁ¿ÀàĞÍ
+        /// å˜é‡ç±»å‹
         /// </summary>
         public override Type Type
         {

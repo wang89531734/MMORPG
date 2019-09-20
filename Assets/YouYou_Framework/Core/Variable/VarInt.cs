@@ -1,3 +1,8 @@
+//===================================================
+//ä½œ    è€…ï¼šè¾¹æ¶¯  http://www.u3dol.com
+//åˆ›å»ºæ—¶é—´ï¼š
+//å¤‡    æ³¨ï¼š
+//===================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +10,12 @@ using UnityEngine;
 namespace YouYou
 {
     /// <summary>
-    /// int±äÁ¿
+    /// intå˜é‡
     /// </summary>
-    public class VarInt :Variable<int>
+    public class VarInt : Variable<int>
     {
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
         /// <returns></returns>
         public static VarInt Alloc()
@@ -22,9 +27,9 @@ namespace YouYou
         }
 
         /// <summary>
-        /// ·ÖÅäÒ»¸ö¶ÔÏó
+        /// åˆ†é…ä¸€ä¸ªå¯¹è±¡
         /// </summary>
-        /// <param name="value">³õÊ¼Öµ</param>
+        /// <param name="value">åˆå§‹å€¼</param>
         /// <returns></returns>
         public static VarInt Alloc(int value)
         {
@@ -34,7 +39,7 @@ namespace YouYou
         }
 
         /// <summary>
-        /// VarInt->int
+        /// VarInt -> int
         /// </summary>
         /// <param name="value"></param>
         public static implicit operator int(VarInt value)

@@ -8,12 +8,10 @@ using System.Collections;
 using System.IO;
 using System;
 using System.Text;
-using XLua;
 
 /// <summary>
 /// 数据转换(byte short int long float decimal bool string)
 /// </summary>
-[LuaCallCSharp]
 public class MMO_MemoryStream : MemoryStream
 {
     public MMO_MemoryStream()
