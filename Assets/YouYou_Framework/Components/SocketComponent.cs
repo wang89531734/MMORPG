@@ -20,15 +20,6 @@ namespace YouYou
 
         private SocketManager m_SocketManager;
 
-        ///// <summary>
-        ///// 通用的MemoryStream
-        ///// </summary>
-        //public MMO_MemoryStream CommonMemoryStream
-        //{
-        //    get;
-        //    private set;
-        //}
-
         /// <summary>
         /// 发送用的MS
         /// </summary>
