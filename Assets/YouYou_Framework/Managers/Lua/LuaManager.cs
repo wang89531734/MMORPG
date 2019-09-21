@@ -24,12 +24,12 @@ namespace YouYou
 
 #if DISABLE_ASSETBUNDLE && UNITY_EDITOR
             //2.设置xLua的脚本路径
-            luaEnv.DoString(string.Format("package.path = '{0}/?.bytes'", Application.dataPath));
+            luaEnv.DoString(string.Format("package.path = '{0}/?.bytes'", Application.dataPath+ "Download/xLuaLogic/"));
 #else
             luaEnv.AddLoader(MyLoader);
-            luaEnv.DoString(string.Format("package.path = '{0}/?.lua'", Application.persistentDataPath));
+            //luaEnv.DoString(string.Format("package.path = '{0}/?.lua'", Application.persistentDataPath));
 #endif
-            DoString("require'Download/xLuaLogic/Main'");
+            DoString("require'Main'");
         }
 
         /// <summary>
