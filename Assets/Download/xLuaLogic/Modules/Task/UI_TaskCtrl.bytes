@@ -1,0 +1,35 @@
+UI_TaskCtrl = {};
+
+local this = UI_TaskCtrl;
+
+function UI_TaskCtrl.OnInit(userData)
+    print("UI_TaskCtrl.OnInit")
+end
+
+function UI_TaskCtrl.OnOpen(userData)
+    UI_TaskView.txtTaskName.text = "youyouTest";
+
+    --local rows = TaskDBModel.GetList();
+    --
+    --for i = 1, #rows do
+    --    local entity = rows[i];
+    --    print(entity.Id);
+    --    print(entity.Name);
+    --end
+
+    local proto = Task_SearchTaskProto.New();
+    Task_SearchTaskProto.SendProto(proto);
+
+    --local proto = Task_SearchTaskReturnProto.New();
+    --Task_SearchTaskReturnProto.SendProto(proto);
+
+    print("给服务器发送消息")
+end
+
+function UI_TaskCtrl.OnClose()
+
+end
+
+function UI_TaskCtrl.OnBeforDestroy()
+
+end

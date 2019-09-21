@@ -18,7 +18,38 @@ namespace YouYou
         [Header("每帧最大处理包数量")]
         public int MaxReceiveCount = 5;
 
+        [Header("心跳间隔")]
+        public int HeartbeatInterval = 5;
+
+        /// <summary>
+        /// 上次心跳时间
+        /// </summary>
+        private float m_PrevHeartbeatTime = 0;
+
+        /// <summary>
+        /// PING值(毫秒)
+        /// </summary>
+        [HideInInspector]
+        public int PingValue;
+
+        /// <summary>
+        /// 游戏服务器的时间
+        /// </summary>
+        [HideInInspector]
+        public long GameServerTime;
+
+        /// <summary>
+        /// 和服务器对表的时刻
+        /// </summary>
+        [HideInInspector]
+        public float CheckServerTime;
+
         private SocketManager m_SocketManager;
+
+        /// <summary>
+        /// 是否已经连接到主Socket
+        /// </summary>
+        private bool m_IsConnectToMainSocket;
 
         /// <summary>
         /// 发送用的MS
@@ -51,6 +82,13 @@ namespace YouYou
         {
             base.OnStart();
             m_MainSocket = CreateSocketTcpRoutine();
+            m_MainSocket.OnConnectOK = () =>
+            {
+                //已经建立了链接
+                m_IsConnectToMainSocket = true;
+            };
+
+            SocketProtoListener.AddProtoListener();
         }
 
         /// <summary>
@@ -82,9 +120,11 @@ namespace YouYou
 
         public override void Shutdown()
         {
-            m_SocketManager.Dispose();
+            m_IsConnectToMainSocket = false;
 
+            m_SocketManager.Dispose();
             GameEntry.Pool.EnqueueClassObject(m_MainSocket);
+            SocketProtoListener.RemoveProtoListener();
 
             SocketSendMS.Dispose();
             SocketReceiveMS.Dispose();
@@ -96,6 +136,20 @@ namespace YouYou
         public void OnUpdate()
         {
             m_SocketManager.OnUpdate();
+
+            if (m_IsConnectToMainSocket)
+            {
+                if (Time.realtimeSinceStartup > m_PrevHeartbeatTime + HeartbeatInterval)
+                {
+                    //发送心跳
+                    m_PrevHeartbeatTime = Time.realtimeSinceStartup;
+
+                    System_HeartbeatProto proto = new System_HeartbeatProto();
+                    proto.LocalTime = Time.realtimeSinceStartup * 1000;
+                    CheckServerTime = Time.realtimeSinceStartup;
+                    SendMsg(proto);
+                }
+            }
         }
 
         //===============================================
@@ -118,9 +172,9 @@ namespace YouYou
         /// 发送消息
         /// </summary>
         /// <param name="buffer"></param>
-        public void SendMsg(byte[] buffer)
+        public void SendMsg(IProto proto)
         {
-            m_MainSocket.SendMsg(buffer);
+            m_MainSocket.SendMsg(proto.ToArray());
         }       
     }
 }
