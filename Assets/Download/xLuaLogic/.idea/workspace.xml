@@ -41,7 +41,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -84,6 +84,7 @@
       <workItem from="1569077345553" duration="104000" />
       <workItem from="1569077657781" duration="282000" />
       <workItem from="1569077981657" duration="1498000" />
+      <workItem from="1569152740584" duration="3154000" />
     </task>
     <servers />
   </component>
