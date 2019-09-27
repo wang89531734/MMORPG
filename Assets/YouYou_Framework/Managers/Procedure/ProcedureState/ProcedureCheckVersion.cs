@@ -12,7 +12,6 @@ namespace YouYou
         public override void OnEnter()
         {
             base.OnEnter();
-
             GameEntry.Procedure.ChangeState(ProcedureState.Preload);
         }
 

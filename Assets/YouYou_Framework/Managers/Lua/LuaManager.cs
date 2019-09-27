@@ -29,7 +29,7 @@ namespace YouYou
             luaEnv.AddLoader(MyLoader);
             //luaEnv.DoString(string.Format("package.path = '{0}/?.lua'", Application.persistentDataPath));
 #endif
-            DoString("require'Main'");
+            //DoString("require'Main'");
         }
 
         /// <summary>

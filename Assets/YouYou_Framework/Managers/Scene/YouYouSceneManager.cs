@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace YouYou
 {
-    public class SceneManager : ManagerBase
+    public class YouYouSceneManager : ManagerBase
     {
     
     }
