@@ -1,7 +1,7 @@
 
 //===================================================
 //作    者：边涯  http://www.u3dol.com
-//创建时间：2019-10-02 20:05:24
+//创建时间：2019-10-02 20:05:44
 //备    注：此代码为工具生成 请勿手工修改
 //===================================================
 using System.Collections;
@@ -10,14 +10,14 @@ using System;
 using YouYou;
 
 /// <summary>
-/// Message数据管理
+/// Sys_SceneDetail数据管理
 /// </summary>
-public partial class MessageDBModel : DataTableDBModelBase<MessageDBModel, MessageEntity>
+public partial class Sys_SceneDetailDBModel : DataTableDBModelBase<Sys_SceneDetailDBModel, Sys_SceneDetailEntity>
 {
     /// <summary>
     /// 文件名称
     /// </summary>
-    public override string DataTableName { get { return "Message"; } }
+    public override string DataTableName { get { return "Sys_SceneDetail"; } }
 
     /// <summary>
     /// 加载列表
@@ -29,11 +29,11 @@ public partial class MessageDBModel : DataTableDBModelBase<MessageDBModel, Messa
 
         for (int i = 0; i < rows; i++)
         {
-            MessageEntity entity = new MessageEntity();
+            Sys_SceneDetailEntity entity = new Sys_SceneDetailEntity();
             entity.Id = ms.ReadInt();
-            entity.Msg = ms.ReadUTF8String();
-            entity.Module = ms.ReadUTF8String();
-            entity.Description = ms.ReadUTF8String();
+            entity.SceneId = ms.ReadInt();
+            entity.ScenePath = ms.ReadUTF8String();
+            entity.SceneGrade = ms.ReadInt();
 
             m_List.Add(entity);
             m_Dic[entity.Id] = entity;

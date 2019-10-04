@@ -1,35 +1,30 @@
 
 //===================================================
 //作    者：边涯  http://www.u3dol.com
-//创建时间：2019-10-02 20:05:46
+//创建时间：2019-10-02 20:05:43
 //备    注：此代码为工具生成 请勿手工修改
 //===================================================
 using System.Collections;
 using YouYou;
 
 /// <summary>
-/// Sys_Sound实体
+/// Sys_Scene实体
 /// </summary>
-public partial class Sys_SoundEntity : DataTableEntityBase
+public partial class Sys_SceneEntity : DataTableEntityBase
 {
     /// <summary>
-    /// 描述
+    /// 名称
     /// </summary>
-    public string Desc;
+    public int SceneName;
 
     /// <summary>
-    /// 路径
+    /// 背景音乐
     /// </summary>
-    public string AssetPath;
+    public int BGMId;
 
     /// <summary>
-    /// 是否3d声音
+    /// 场景类型(0=登陆1=选人2=PVP)
     /// </summary>
-    public int Is3D;
-
-    /// <summary>
-    /// 音量（0-1）
-    /// </summary>
-    public float Volume;
+    public int SceneType;
 
 }
